@@ -73,7 +73,7 @@ const pagarServicios = () => {
       depositarServicio(internet, misServicios[3]);
       break;
     default:
-      alert("No hay opción valida");
+     alert("No hay opción valida");
       break;
   }
 };
@@ -85,7 +85,9 @@ function depositarServicio(tipoDeServicio, nombreServicio) {
     `Has pagado ${tipoDeServicio} del servicio ${nombreServicio} y tu nuevo saldo es ${saldoEnCuenta}`
   );
 }
-rvicios[0]);
+switch (pagarServicios[0]) {
+    case "1":  
+      depositarServicio(agua, misServicios[0]);
       break;
     case "2":
       depositarServicio(telefono, misServicios[1]);
@@ -97,15 +99,15 @@ rvicios[0]);
       depositarServicio(internet, misServicios[3]);
       break;
     default:
-      alert("No hay opción valida");
+      //alert("No hay opción valida");
       break;
   }
-};
+
 
 function depositarServicio(tipoDeServicio, nombreServicio) {
   saldoEnCuenta -= tipoDeServicio;
   actualizarSaldoEnPantalla();
-  alert(
+  return alert(
     `Has pagado ${tipoDeServicio} del servicio ${nombreServicio} y tu nuevo saldo es ${saldoEnCuenta}`
   );
 }
@@ -142,6 +144,7 @@ function depositarDinero() {
   alert("Su nuevo saldo es: " + saldoEnCuenta);
 }
 
+
 function cambiarLimiteDeExtraccion() {
   var nuevoLimite = parseInt(prompt("Ingrese su nuevo límite de estrasion"), 0);
   limiteExtraccion = nuevoLimite;
@@ -150,4 +153,19 @@ function cambiarLimiteDeExtraccion() {
     "Pum pum!! Se ha actualizado tu límite de extracción, nuevo valor " +
       limiteExtraccion
   );
+}
+
+
+
+function transferirDinero() {
+  var DineroAtransferir = parseInt(prompt("ingrese valor a transerir"), 0);
+
+  if (DineroAtransferir > saldoEnCuenta ) {
+    alert("No cuenta con el dinero suficiente a transferir");
+  } else if (DineroAtransferir < saldoEnCuenta) {
+    saldoEnCuenta = saldoEnCuenta - DineroAtransferir;
+    actualizarSaldoEnPantalla();
+    return alert("su saldo se ha actualizado: " + saldoEnCuenta)
+  }  
+
 }
