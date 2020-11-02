@@ -1,6 +1,6 @@
 console.log("Hello my banking app");
 // DECLARACIÓN DE VARIABLES
-let nombreUsuario = "John Flórez";
+let nombreUsuario = "a";
 let saldoEnCuenta = 5000;
 let limiteExtraccion = 500;
 let claveCorrecta = 1234;
@@ -8,14 +8,14 @@ let claveCorrecta = 1234;
 // SE DEFINE LA FUNCIÓN PARA INICIAR SESIÓN
 function iniciarSesion() {
   var clave = parseInt(
-    prompt("Por favor ingrese su clave para iniciar sesión"),
+    prompt("Por favor ingrese su clave para iniciar sesión (LA CONTRASEÑA ES 1234)"),
     0
   );
   //console.log(typeof clave);
   // 1234 == "1234" -> true
   // 1234 === "1234" -> false
   if (clave === claveCorrecta) {
-    alert("Bienvenido/a " + nombreUsuario + " a tu Home Banking");
+    alert("Bienvenido/a " + nombreUsuario + "tu Home Banking");
     document.body.style.display = "block";
     cargarNombreEnPantalla();
     actualizarSaldoEnPantalla();
